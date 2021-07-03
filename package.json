@@ -1,0 +1,11 @@
+{
+  "name": "add-roles",
+  "version": "0.0.1",
+  "description": "add roles to acmecorp.json file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Omri Gazitt <ogazitt@gmail.com>",
+  "license": "ISC"
+}
