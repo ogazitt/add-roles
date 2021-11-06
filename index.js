@@ -18,12 +18,12 @@ const transformedUsers = users.map(u => {
   const attr = u.attributes  
   if (attr && attr.properties && attr.properties.department === 'Operations') {
     if (attr.properties.title.includes('Manager')) {
-      attr.roles.push('Admin')
+      attr.roles.push('admin')
     } else {
-      attr.roles.push('Editor')
+      attr.roles.push('editor')
     }
   } else {
-    attr.roles.push('Viewer')
+    attr.roles.push('viewer')
   }
 
   return u
