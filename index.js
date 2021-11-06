@@ -14,26 +14,19 @@ if (!file) {
 
 const users = require(`./${file}`)
 
-//const users = fs.readFileSync(`./${file}`, 'utf8')
-
 const transformedUsers = users.map(u => {
   const attr = u.attributes  
-  if (!u.applications) {
-    u.applications = {}
-  }
-  u.applications.peoplefinder = {}
-  u.applications.peoplefinder.properties = attr && { ...attr.properties }
   if (attr && attr.properties && attr.properties.department === 'Operations') {
     if (attr.properties.title.includes('Manager')) {
-      u.applications.peoplefinder.roles = ['admin']
+      attr.roles.push('Admin')
     } else {
-      u.applications.peoplefinder.roles = ['editor']
+      attr.roles.push('Editor')
     }
   } else {
-    u.applications.peoplefinder.roles = ['viewer']
+    attr.roles.push('Viewer')
   }
 
   return u
 })
 
-console.log(JSON.stringify(users, null, 2))
+console.log(JSON.stringify(transformedUsers, null, 2))
